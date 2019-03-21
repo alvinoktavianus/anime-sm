@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Anime SM</string>
+
+    <string name="text_login">Login</string>
+
+    <string name="hint_email_address">Email address</string>
+    <string name="hint_password">Password</string>
 </resources>
