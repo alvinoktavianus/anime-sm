@@ -6,6 +6,7 @@ import com.dhammananda.animesm.MyApplication;
 import com.dhammananda.animesm.R;
 import com.dhammananda.animesm.helper.ValidationHelper;
 import com.dhammananda.animesm.models.User;
+import com.dhammananda.animesm.repositories.UserRepository;
 
 import java.util.List;
 
@@ -24,6 +25,9 @@ public class LoginActivity extends AppCompatActivity {
 
     @Inject
     ValidationHelper validation;
+
+    @Inject
+    UserRepository userRepository;
 
     @BindView(R.id.edit_text_email_address)
     AppCompatEditText editTextEmailAddress;

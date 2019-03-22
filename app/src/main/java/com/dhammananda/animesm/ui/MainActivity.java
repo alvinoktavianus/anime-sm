@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.dhammananda.animesm.MyApplication;
 import com.dhammananda.animesm.R;
+import com.dhammananda.animesm.repositories.FanbaseRepository;
 
 import javax.inject.Inject;
 
@@ -14,6 +15,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Inject
     SharedPreferences sharedPreferences;
+
+    @Inject
+    FanbaseRepository fanbaseRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
