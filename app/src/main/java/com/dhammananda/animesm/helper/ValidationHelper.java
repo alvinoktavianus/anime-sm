@@ -15,4 +15,8 @@ public class ValidationHelper {
         return instance;
     }
 
+    public boolean isStringEmpty(String s) {
+        return s.isEmpty();
+    }
+
 }
