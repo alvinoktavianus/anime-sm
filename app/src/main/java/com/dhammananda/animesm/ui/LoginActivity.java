@@ -12,6 +12,8 @@ import com.dhammananda.animesm.repositories.UserRepository;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.Objects;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
@@ -61,19 +63,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void onClickLogin() {
-        String email = textEmailAddress.getText().toString().trim();
-        String password = textPassword.getText().toString().trim();
+        String email = Objects.requireNonNull(textEmailAddress.getText()).toString().trim();
+        String password = Objects.requireNonNull(textPassword.getText()).toString().trim();
 
         User user = userRepository.findUserByEmailAddress(email);
 
         if (validationHelper.isStringEmpty(email)) {
-            Toast.makeText(this, "Email must be filled", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Email must be filled", Toast.LENGTH_SHORT).show();
         } else if (validationHelper.isStringEmpty(password)) {
-            Toast.makeText(this, "Password must be filled", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Password must be filled", Toast.LENGTH_SHORT).show();
         } else if (user == null) {
-            Toast.makeText(this, "Account doesn't exists in the database", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Account doesn't exists in the database", Toast.LENGTH_SHORT).show();
         } else if (user.getPassword() != password) {
-            Toast.makeText(this, "Password doesn't match", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Password doesn't match", Toast.LENGTH_SHORT).show();
         } else {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);

@@ -43,4 +43,9 @@ public class UserRepository {
         return user;
     }
 
+    public User save(User user) {
+        users.add(user);
+        return user;
+    }
+
 }

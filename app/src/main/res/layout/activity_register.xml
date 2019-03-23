@@ -144,7 +144,7 @@
             android:id="@+id/edit_text_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email address"
+            android:hint="Address"
             android:inputType="phone"
             android:maxLines="1" />
 
