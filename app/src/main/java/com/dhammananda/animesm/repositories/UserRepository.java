@@ -2,14 +2,24 @@ package com.dhammananda.animesm.repositories;
 
 import com.dhammananda.animesm.models.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepository {
 
     private List<User> users;
+    private static UserRepository instance = null;
 
-    public UserRepository(List<User> users) {
-        this.users = users;
+    private UserRepository() {
+        users = new ArrayList<>();
+    }
+
+    public static UserRepository getInstance() {
+        if (instance == null) {
+            instance = new UserRepository();
+            return instance;
+        }
+        return instance;
     }
 
     public User findUserByEmailAddress(String emailAddress) {

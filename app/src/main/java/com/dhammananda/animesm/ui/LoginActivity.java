@@ -1,54 +1,47 @@
 package com.dhammananda.animesm.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
-import com.dhammananda.animesm.MyApplication;
 import com.dhammananda.animesm.R;
-import com.dhammananda.animesm.helper.ValidationHelper;
-import com.dhammananda.animesm.models.User;
-import com.dhammananda.animesm.repositories.UserRepository;
-
-import java.util.List;
-
-import javax.inject.Inject;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatEditText;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import androidx.appcompat.widget.AppCompatButton;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    @Inject
-    List<User> users;
-
-    @Inject
-    ValidationHelper validation;
-
-    @Inject
-    UserRepository userRepository;
-
-    @BindView(R.id.edit_text_email_address)
-    AppCompatEditText editTextEmailAddress;
-
-    @BindView(R.id.edit_text_password)
-    AppCompatEditText editTextPassword;
+    TextInputLayout emailInputLayout;
+    TextInputLayout passwordInputLayout;
+    TextInputEditText textEmailAddress;
+    TextInputEditText textPassword;
+    AppCompatButton buttonLogin;
+    AppCompatButton buttonRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        ((MyApplication) getApplication())
-                .getApplicationComponent()
-                .inject(this);
+        emailInputLayout = findViewById(R.id.email_input_layout);
+        passwordInputLayout = findViewById(R.id.password_input_layout);
+        textEmailAddress = findViewById(R.id.edit_text_email_address);
+        textPassword = findViewById(R.id.edit_text_password);
+        buttonLogin = findViewById(R.id.button_login);
+        buttonRegister = findViewById(R.id.button_register);
 
-        ButterKnife.bind(this);
+        buttonLogin.setOnClickListener(this);
     }
 
-    @OnClick(R.id.button_login)
-    public void onClickLogin() {
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.button_login:
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+            case R.id.button_register:
+        }
     }
-
 }
