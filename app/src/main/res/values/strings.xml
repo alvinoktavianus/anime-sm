@@ -6,4 +6,10 @@
     <string name="hint_email_address">Email address</string>
     <string name="hint_password">Password</string>
     <string name="string_register">Register</string>
+
+    <string name="text_anime_name"><b>Title:</b> %1$s</string>
+    <string name="text_anime_genre"><b>Genre:</b> %1$s</string>
+    <string name="text_anime_rating"><b>Rating:</b> %1$s</string>
+    <string name="text_anime_synopsis"><b>Synopsis:</b> %1$s</string>
+    <string name="text_fanbase_location"><b>Location:</b> %1$s, %2$s</string>
 </resources>
