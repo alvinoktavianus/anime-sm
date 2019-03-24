@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         userRepository = UserRepository.getInstance();
 
         buttonLogin.setOnClickListener(this);
+        buttonRegister.setOnClickListener(this);
     }
 
     @Override
@@ -52,13 +53,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.button_login:
                 onClickLogin();
+                break;
             case R.id.button_register:
                 onClickRegister();
+                break;
         }
     }
 
     private void onClickRegister() {
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(intent);
     }
 

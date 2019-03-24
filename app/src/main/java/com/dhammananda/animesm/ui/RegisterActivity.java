@@ -5,6 +5,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -24,7 +25,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     TextInputEditText phoneNumberEditText;
     TextInputEditText emailEditText;
     TextInputEditText addressEditText;
-    AppCompatButton buttonRegisterEditText;
+    AppCompatButton buttonRegister;
 
     UserRepository userRepository;
     ValidationHelper validationHelper;
@@ -40,10 +41,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         phoneNumberEditText = findViewById(R.id.edit_text_phone_number);
         emailEditText = findViewById(R.id.edit_text_email);
         addressEditText = findViewById(R.id.edit_text_address);
-        buttonRegisterEditText = findViewById(R.id.button_submit_register);
+        buttonRegister = findViewById(R.id.button_submit_register);
 
         userRepository = UserRepository.getInstance();
         validationHelper = ValidationHelper.getInstance();
+
+        buttonRegister.setOnClickListener(this);
     }
 
     @Override
@@ -51,6 +54,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.button_submit_register:
                 onClickRegister();
+                break;
         }
     }
 
@@ -85,4 +89,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

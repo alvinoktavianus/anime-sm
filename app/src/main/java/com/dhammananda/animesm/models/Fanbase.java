@@ -45,6 +45,14 @@ public class Fanbase {
         return genres;
     }
 
+    public String getGenresInString() {
+        StringBuilder s = new StringBuilder();
+        for (Genre genre : genres) {
+            s.append(genre.toString()).append(", ");
+        }
+        return s.toString();
+    }
+
     public void setGenres(List<Genre> genres) {
         this.genres = genres;
     }
