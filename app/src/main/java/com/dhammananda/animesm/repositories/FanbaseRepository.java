@@ -138,4 +138,8 @@ public class FanbaseRepository {
         return null;
     }
 
+    public Fanbase findByListIndex(Integer index) {
+        return fanbases.get(index);
+    }
+
 }

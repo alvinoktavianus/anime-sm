@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Toast.makeText(this, "Password must be filled", Toast.LENGTH_SHORT).show();
         } else if (user == null) {
             Toast.makeText(this, "Account doesn't exists in the database", Toast.LENGTH_SHORT).show();
-        } else if (user.getPassword() != password) {
+        } else if (!user.getPassword().equals(password)) {
             Toast.makeText(this, "Password doesn't match", Toast.LENGTH_SHORT).show();
         } else {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
